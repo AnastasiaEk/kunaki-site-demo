@@ -1,41 +1,41 @@
 [
   {
-    "file": "hero-volunteers.jpg",
-    "author": "Vitaly Gariev",
-    "source": "https://www.pexels.com/photo/volunteers-organizing-community-cleanup-event-36713461/",
-    "image_url": "https://images.pexels.com/photos/36713461/pexels-photo-36713461.jpeg?auto=compress&cs=tinysrgb&w=1800",
-    "note": "Illustrative editorial image, not an actual photograph of Kunaki members/projects"
+    "file": "hero-community.webp",
+    "type": "AI-generated illustration",
+    "generator": "OpenAI image_gen",
+    "note": "Fictional Russian cultural and social setting; not photographs of real KUNAKI members, team or projects.",
+    "prompt_file": "illustration-prompts.md"
   },
   {
-    "file": "together-hands.jpg",
-    "author": "Ivan S",
-    "source": "https://www.pexels.com/photo/people-with-their-hands-together-9630216/",
-    "image_url": "https://images.pexels.com/photos/9630216/pexels-photo-9630216.jpeg?auto=compress&cs=tinysrgb&w=1400",
-    "note": "Illustrative editorial image, not an actual photograph of Kunaki members/projects"
+    "file": "creative-workshop.webp",
+    "type": "AI-generated illustration",
+    "generator": "OpenAI image_gen",
+    "note": "Fictional Russian cultural and social setting; not photographs of real KUNAKI members, team or projects.",
+    "prompt_file": "illustration-prompts.md"
   },
   {
-    "file": "volunteers-community.jpg",
-    "author": "Anna Shvets",
-    "source": "https://www.pexels.com/photo/volunteers-standing-on-green-grass-field-while-smiling-at-the-camera-5029855/",
-    "image_url": "https://images.pexels.com/photos/5029855/pexels-photo-5029855.jpeg?auto=compress&cs=tinysrgb&w=1400",
-    "note": "Illustrative editorial image, not an actual photograph of Kunaki members/projects"
+    "file": "cinema-creative.webp",
+    "type": "AI-generated illustration",
+    "generator": "OpenAI image_gen",
+    "note": "Fictional Russian cultural and social setting; not photographs of real KUNAKI members, team or projects.",
+    "prompt_file": "illustration-prompts.md"
   },
   {
-    "file": "pottery.jpg",
+    "file": "social-volunteers.webp",
+    "type": "AI-generated illustration",
+    "generator": "OpenAI image_gen",
+    "note": "Fictional Russian cultural and social setting; not photographs of real KUNAKI members, team or projects.",
+    "prompt_file": "illustration-prompts.md"
+  },
+  {
+    "file": "pottery.webp",
     "author": "Tuan Nguyen",
     "source": "https://unsplash.com/photos/hands-shaping-clay-on-a-pottery-wheel-_fxvuMucGDs",
     "image_url": "https://images.unsplash.com/photo-1771523350488-32af5ba560e6?auto=format&fit=crop&fm=jpg&q=85&w=1200",
     "note": "Illustrative editorial image, not an actual photograph of Kunaki members/projects"
   },
   {
-    "file": "art-workshop.jpg",
-    "author": "McFollis",
-    "source": "https://www.pexels.com/photo/creative-painting-workshop-with-friends-indoors-38798799/",
-    "image_url": "https://images.pexels.com/photos/38798799/pexels-photo-38798799.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "note": "Illustrative editorial image, not an actual photograph of Kunaki members/projects"
-  },
-  {
-    "file": "painting-hands.jpg",
+    "file": "painting-hands.webp",
     "author": "Anna Tarazevich",
     "source": "https://www.pexels.com/photo/people-in-an-art-workshop-6146655/",
     "image_url": "https://images.pexels.com/photos/6146655/pexels-photo-6146655.jpeg?auto=compress&cs=tinysrgb&w=1600",
