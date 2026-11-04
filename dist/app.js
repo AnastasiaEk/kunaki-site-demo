@@ -38,7 +38,7 @@ menuToggle.addEventListener('click', () => {
 $$('#mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
 document.addEventListener('keydown', event => {if(event.key === 'Escape')closeMenu();});
 document.addEventListener('click', event => {if(!$('.header').contains(event.target))closeMenu();});
-window.matchMedia('(min-width:721px)').addEventListener('change', event => {if(event.matches)closeMenu();});
+window.matchMedia('(min-width:1101px)').addEventListener('change', event => {if(event.matches)closeMenu();});
 function headerState() {$('.header').classList.toggle('scrolled', window.scrollY > 10);}
 window.addEventListener('scroll',headerState,{passive:true}); headerState();
 
@@ -86,9 +86,9 @@ function showJoin(type,trigger) {
 
 const legalText='АНО «ЦПКСИ «КУНАКИ»\nАвтономная некоммерческая организация «Центр Поддержки Культурных и Социальных Инициатив «КУНАКИ»\nИНН: 3700039908\nКПП: 370001001\nОГРН: 1263700003973\nДата регистрации: 24.08.2026\nЮридический адрес: 153003, Ивановская область, г. Иваново, ул. Зверева, д. 8\nДиректор: Овсянников Алексей Валерьевич\nЭлектронная почта: stroiti-gk@mail.ru\nТелефоны: +7 (982) 654-33-88; +7 (903) 632-69-81\nБанковские реквизиты предоставляются по запросу.';
 const specialDialogs={
-  manifesto:()=>`<div class="eyebrow">МАНИФЕСТ КУНАКИ</div><h2 id="dialog-title">Всё начинается<br>с человека.</h2><p>С его идеи, характера, таланта, поступка и желания что-то изменить.</p><p>Каждый человек обладает собственной силой. Но когда встречаются люди, объединённые общими ценностями и стремлением создавать что-то значимое, эта сила становится больше.</p><p>Мы верим в людей, в силу команды и в возможности, которые рождаются благодаря единству.</p><p>Мы объединяем людей, поддерживаем инициативы и помогаем идеям становиться реальностью.</p><p><strong>Потому что за каждым большим делом всегда стоят люди.</strong></p><button class="button" data-join="volunteer">Стать частью команды <span aria-hidden="true">↗</span></button>`,
+  manifesto:()=>`<div class="eyebrow">МАНИФЕСТ КУНАКИ</div><h2 id="dialog-title">Всё начинается<br>с человека.</h2><p>С его идеи, характера, таланта, поступка и желания что-то изменить.</p><p>Каждый человек обладает собственной силой, но именно взаимодействие людей позволяет этой силе превращаться в нечто большее.</p><p>Мы верим, что настоящие возможности рождаются там, где встречаются единомышленники, объединённые общими ценностями и стремлением создавать что-то значимое.</p><p>Мы объединяем людей, поддерживаем инициативы и помогаем идеям становиться реальностью.</p><p><strong>Потому что за каждым большим делом всегда стоят люди.</strong></p><button class="button" data-join="volunteer">Стать частью команды <span aria-hidden="true">↗</span></button>`,
   documents:()=>`<div class="eyebrow">ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ</div><h2 id="dialog-title">Документы<br>и реквизиты</h2><p>Автономная некоммерческая организация «Центр Поддержки Культурных и Социальных Инициатив «КУНАКИ»</p><dl class="legal-list"><dt>Кратко</dt><dd>АНО «ЦПКСИ «КУНАКИ»</dd><dt>ИНН / КПП</dt><dd>3700039908 / 370001001</dd><dt>ОГРН</dt><dd>1263700003973</dd><dt>Регистрация</dt><dd>24 августа 2026 года</dd><dt>Адрес</dt><dd>153003, Ивановская область,<br>г. Иваново, ул. Зверева, д. 8</dd><dt>Директор</dt><dd>Овсянников Алексей Валерьевич</dd></dl><div class="document-links"><a href="mailto:stroiti-gk@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B0%20%D0%9A%D1%83%D0%BD%D0%B0%D0%BA%D0%B8">Запросить устав ↗</a><a href="mailto:stroiti-gk@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8%20%D0%9A%D1%83%D0%BD%D0%B0%D0%BA%D0%B8">Запросить карточку организации ↗</a></div><button class="copy-button" data-copy="legal">Скопировать реквизиты</button><p class="dialog-note">Официальные документы и банковские реквизиты предоставляются по запросу: <a href="mailto:${mail}">${mail}</a>.</p>`,
-  credits:()=>`<div class="eyebrow">ВИЗУАЛЬНЫЕ МАТЕРИАЛЫ</div><h2 id="dialog-title">Люди в кадре</h2><p>Фотографии помогают передать атмосферу единства, заботы и творчества. Это иллюстрации, а не фотоотчёты о деятельности АНО «Кунаки» и не портреты её команды.</p><div class="credit-list"><p>Руки вместе — <a href="https://www.pexels.com/photo/people-with-their-hands-together-9630216/" target="_blank" rel="noopener noreferrer">Ivan S / Pexels</a>.<br>Другие фотографии и источники — в <a href="assets/photo-sources.json" target="_blank" rel="noopener noreferrer">списке визуальных материалов</a>.</p><p>Фирменный знак и логотип — из предоставленного логобука «Кунаки». Шрифт Manrope распространяется по <a href="assets/fonts/OFL.txt" target="_blank" rel="noopener noreferrer">лицензии SIL Open Font License</a>.</p></div>`
+  credits:()=>`<div class="eyebrow">ВИЗУАЛЬНЫЕ МАТЕРИАЛЫ</div><h2 id="dialog-title">Об изображениях</h2><p>Сцены с людьми созданы с помощью ИИ специально для оформления сайта в российском контексте. Это иллюстрации, а не фотографии участников АНО «Кунаки», её команды или реальных проектов.</p><p>Фотографии рук за творческой работой используются как иллюстрации направлений. Они не являются фотоотчётами организации.</p><div class="credit-list"><p>Источники фотографий и сведения об иллюстрациях — в <a href="assets/photo-sources.json" target="_blank" rel="noopener noreferrer">списке визуальных материалов</a>.</p><p>Фирменный знак и логотип — из предоставленного логобука «Кунаки». Шрифт Manrope распространяется по <a href="assets/fonts/OFL.txt" target="_blank" rel="noopener noreferrer">лицензии SIL Open Font License</a>.</p></div>`
 };
 async function copyValue(key) {
   const value=key==='legal'?legalText:mail;
@@ -118,3 +118,17 @@ document.addEventListener('submit',event=>{
   $('#copy-message').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(body);toast('Текст письма скопирован');}catch{const text=document.createElement('textarea');text.value=body;text.setAttribute('aria-label','Текст письма для копирования');text.style.cssText='width:100%;min-height:160px;font:inherit';fallback.append(text);text.focus();text.select();}});
   window.location.href=url;
 });
+
+// Indicate the currently visible section in both navigation menus.
+const sectionNavLinks = $$('.desktop-nav a[href^="#"], #mobile-menu a[href^="#"]');
+const pageSections = $$('main section[id]');
+let sectionNavFrame = false;
+function updateSectionNav(){
+  let current = '';
+  const threshold = $('.header').offsetHeight + 90;
+  pageSections.forEach(section=>{if(section.getBoundingClientRect().top <= threshold)current = section.id;});
+  sectionNavLinks.forEach(link=>{if(link.hash === '#' + current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
+  sectionNavFrame = false;
+}
+window.addEventListener('scroll',()=>{if(!sectionNavFrame){sectionNavFrame=true;requestAnimationFrame(updateSectionNav);}},{passive:true});
+updateSectionNav();
