@@ -1,5 +1,5 @@
 /* First-screen composition. The remaining page keeps its existing styles. */
-.collage-hero{height:clamp(700px,46vw,820px);min-height:700px;--sun-opacity:1;--sun-width:1060px;--sun-height:calc(var(--sun-width)*281/336);--sun-disc:calc(var(--sun-width)*178/336)}
+.collage-hero{height:clamp(700px,46vw,820px);min-height:700px;--sun-opacity:1;--sun-width:960px;--sun-height:calc(var(--sun-width)*281/336);--sun-disc:calc(var(--sun-width)*178/336)}
 .collage-scene{isolation:isolate}
 .collage-paper{position:absolute;inset:0;z-index:0;background:#f1e5cc url('assets/russia-landscape-orthodox-v2.webp') center top/auto 2000px no-repeat}
 .collage-sun-window{z-index:1;mask-image:none;-webkit-mask-image:none;mix-blend-mode:multiply}
@@ -16,6 +16,19 @@
 .collage-mobile-mountain{display:none}
 .collage-hands{z-index:7;left:50%;width:min(78%,1240px);aspect-ratio:2;bottom:auto;top:48%;max-width:none;transform:translateX(-50%)}
 .collage-hand,.collage-hands-joined{object-fit:contain;clip-path:none}
+.collage-hand-motion{position:absolute;inset:0;pointer-events:none;opacity:0}
+.collage-hand-motion-left{z-index:2}.collage-hand-motion-right{z-index:1}.collage-hand-motion-joined{z-index:3;opacity:1}
+.collage-hands .collage-hand{opacity:1}
+.collage-hand-motion>img{z-index:1}
+.collage-sleeve-extension{position:absolute;z-index:0;top:0;height:100%;width:calc(var(--sleeve-reach,0px) + var(--sleeve-overlap,0px));overflow:hidden;pointer-events:none}
+.collage-sleeve-extension>img{position:absolute;top:0;width:var(--hand-width);height:100%;max-width:none;object-fit:contain}
+.collage-sleeve-extension-left{right:calc(100% - var(--sleeve-overlap));mask-image:linear-gradient(to right,#000 calc(100% - var(--sleeve-overlap)),#0000)}
+.collage-sleeve-extension-left>img{right:0;top:-5.13%;transform:scaleY(1.033);transform-origin:top}
+.collage-sleeve-extension-right{left:calc(100% - var(--sleeve-overlap));mask-image:linear-gradient(to left,#000 calc(100% - var(--sleeve-overlap)),#0000)}
+.collage-sleeve-extension-right>img{left:0;top:-13.7%;transform:scaleY(1.182);transform-origin:top}
+.collage-hand-left{mask-image:linear-gradient(to right,#0000,#000 3.5%)}
+.collage-hand-right{mask-image:linear-gradient(to left,#0000,#000 3.5%)}
+.collage-hands-joined{mask-image:linear-gradient(to right,#0000,#000 3.5%,#000 96.5%,#0000)}
 .collage-hero-copy{padding:65px 20px 0;max-width:1040px}
 .collage-site .collage-hero h1{font-size:clamp(64px,4.5vw,82px);line-height:.98;letter-spacing:-2.9px;color:#19361d;margin:0 0 16px;font-weight:400}
 .collage-hero h1>span{font-size:1.08em;color:#fffdf0;padding:0 25px 9px}
@@ -30,12 +43,14 @@
 .collage-replay{background:#263c2bbd;min-height:44px;padding:8px 12px;border-color:#f6ebd28a;font-size:10px}
 .will-animate .collage-landscape,.will-animate .collage-terrain-piece,.will-animate .collage-architecture,.will-animate .collage-mobile-mountain,.will-animate .collage-birches,.will-animate .collage-meadow,.will-animate .collage-riders>img{opacity:0}
 .will-animate .collage-sun{opacity:0;transform:translate(-50%,35%) scale(.96)}
+.will-animate .collage-hand-motion-joined{opacity:0}
 .is-playing .collage-landscape,.is-playing .collage-terrain-piece,.is-playing .collage-architecture,.is-playing .collage-mobile-mountain,.is-playing .collage-birches{animation:hero-landscape-enter 1.3s ease-out both}
 .is-playing .collage-meadow{animation:hero-landscape-enter 1.5s ease-out both}
 .is-playing .collage-riders>img{animation:hero-riders-enter 2.4s ease-out both}
-.is-playing .collage-hand-left{animation:hero-reach-left 4.2s cubic-bezier(.3,.5,.25,1) both}
-.is-playing .collage-hand-right{animation:hero-reach-right 4.2s cubic-bezier(.3,.5,.25,1) both}
-.is-playing .collage-hands-joined{animation:hero-hands-join 4.2s linear both}
+.is-playing .collage-hand-left,.is-playing .collage-hand-right,.is-playing .collage-hands-joined{animation:none}
+.is-playing .collage-hand-motion-left{animation:hero-reach-left 4.2s cubic-bezier(.3,.5,.25,1) both}
+.is-playing .collage-hand-motion-right{animation:hero-reach-right 4.2s cubic-bezier(.3,.5,.25,1) both}
+.is-playing .collage-hand-motion-joined{animation:hero-hands-join 4.2s linear both}
 .is-playing .collage-sun{animation:hero-sunrise 4.2s cubic-bezier(.25,.62,.24,1) both}
 @keyframes hero-landscape-enter{from{opacity:0}to{opacity:1}}
 @keyframes hero-riders-enter{0%,30%{opacity:0}100%{opacity:.95}}
@@ -44,7 +59,7 @@
 @keyframes hero-hands-join{0%,80%{opacity:0}100%{opacity:1}}
 @keyframes hero-sunrise{0%,10%{transform:translate(-50%,35%) scale(.96);opacity:0}100%{transform:translate(-50%,0) scale(1);opacity:var(--sun-opacity)}}
 @media(min-width:1101px){.collage-site .header-inner{height:88px}.collage-brand-symbol{width:68px;height:59px}.collage-brand-lockup img{width:146px;height:38px}}
-@media(max-width:1100px){.collage-hero{height:740px;--sun-width:1000px}.collage-hero-copy{padding-top:60px}.collage-site .collage-hero h1{font-size:62px}.collage-hero-description{font-size:17px;max-width:440px}.collage-riders{width:70px;height:59px}.collage-button{font-size:18px}.collage-hands{width:92%}.collage-petersburg{width:48%;left:-5%}.collage-sea{width:49%;right:-5%}.collage-architecture{right:4%;width:25%}}
+@media(max-width:1100px){.collage-hero{height:740px;--sun-width:940px}.collage-hero-copy{padding-top:60px}.collage-site .collage-hero h1{font-size:62px}.collage-hero-description{font-size:17px;max-width:440px}.collage-riders{width:70px;height:59px}.collage-button{font-size:18px}.collage-hands{width:92%}.collage-petersburg{width:48%;left:-5%}.collage-sea{width:49%;right:-5%}.collage-architecture{right:4%;width:25%}}
 @media(max-width:800px){.collage-site .collage-hero h1{font-size:58px}.collage-hero-description{max-width:425px}}
 @media(max-width:720px){
  .collage-hero{height:auto;min-height:760px;--sun-width:clamp(640px,170vw,660px)}
@@ -61,6 +76,7 @@
  .collage-birches{width:clamp(210px,60vw,250px);left:-25px;mask-image:linear-gradient(to right,#000 10%,#0000 28%),linear-gradient(#000 8%,#0000 26%);mask-composite:add;-webkit-mask-image:linear-gradient(to right,#000 10%,#0000 28%),linear-gradient(#000 8%,#0000 26%);-webkit-mask-composite:source-over}
  .collage-meadow{width:340%}
  .collage-hands{width:112%;aspect-ratio:2}
+ .collage-sleeve-extension{display:none}.collage-hand,.collage-hands-joined{mask-image:none}
  .collage-hero-actions{gap:10px;margin-top:0;flex-direction:column;flex-wrap:nowrap}.collage-button{font-size:20px;min-height:50px;padding:12px 25px;gap:35px;width:min(82%,310px)}
  .collage-hero-footer{right:18px;top:6px;bottom:auto}.collage-replay{font-size:9px;padding:8px 10px;min-height:44px}
  .collage-site .header .button-small{min-height:44px}.collage-site .menu-toggle{width:44px;flex-shrink:0}
@@ -79,4 +95,5 @@
  .collage-site .collage-sun{opacity:var(--sun-opacity)!important;transform:translate(-50%,0)!important;animation:none!important}
  .collage-landscape,.collage-terrain-piece,.collage-architecture,.collage-mobile-mountain,.collage-birches,.collage-meadow{opacity:1!important;animation:none!important}.collage-riders>img{opacity:.95!important;animation:none!important}
  .collage-site .collage-hand{display:none}.collage-site .collage-hands-joined{opacity:1!important;animation:none!important}.collage-replay{display:none!important}
+ .collage-hand-motion-left,.collage-hand-motion-right{display:none}.collage-hand-motion-joined{opacity:1!important;animation:none!important}
 }
