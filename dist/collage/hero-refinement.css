@@ -1,0 +1,52 @@
+/* Hero-only refinement: original lower sections and navigation keep their styles. */
+.collage-hero{height:clamp(660px,calc(100svh - 275px),780px);--sun-opacity:.38}
+.collage-scene{isolation:isolate}
+.collage-landscape{z-index:0;opacity:1}
+.collage-sun-window{z-index:1;mask-image:none;-webkit-mask-image:none;mix-blend-mode:multiply}
+.collage-sun{top:25px;width:580px;height:580px;opacity:var(--sun-opacity);filter:none}
+.collage-meadow{position:absolute;z-index:2;left:50%;top:0;width:100%;height:auto;max-width:none;transform:translateX(-50%);pointer-events:none}
+.collage-hands{z-index:4;left:.5%;width:99%;bottom:auto;top:52%;max-width:none}
+.collage-hero-copy{padding:44px 20px 0;max-width:1040px}
+.collage-site .collage-hero h1{font-size:clamp(67px,5.5vw,88px);line-height:.99;letter-spacing:-2.9px;color:#19361d;margin:0 0 24px;font-weight:400}
+.collage-hero h1>span{font-size:1.1em;color:#fffdf0;padding:0 25px 9px}
+.collage-hero h1>span:before{background:#b77516}
+.collage-hero-description{max-width:690px;padding:12px 20px;background:#f7efdfed;color:#20381e;box-shadow:0 3px 24px #eee3ce66;border-radius:3px;font-size:16px;line-height:1.55;letter-spacing:0}
+.collage-riders{width:86px;height:73px;margin:14px auto 18px;position:relative;z-index:3;pointer-events:none;line-height:0}
+.collage-riders>img{display:block;width:100%;height:100%;object-fit:contain;opacity:.72;transform:translateY(9px)}
+.collage-hero-actions{margin-top:0;gap:22px}
+.collage-button{min-height:48px;padding:12px 24px}
+.collage-hero-footer{justify-content:flex-end;left:auto;bottom:31px}
+.collage-replay{background:#263c2bbd;min-height:40px;padding:8px 12px;border-color:#f6ebd28a;font-size:10px}
+.will-animate .collage-landscape,.will-animate .collage-meadow,.will-animate .collage-riders>img{opacity:0}
+.will-animate .collage-sun{opacity:0;transform:translate(-50%,62%) scale(.96)}
+.is-playing .collage-landscape{animation:hero-landscape-enter 1.15s ease-out both}
+.is-playing .collage-meadow{animation:hero-landscape-enter 1.35s ease-out both}
+.is-playing .collage-riders>img{animation:hero-riders-enter 2.4s ease-out both}
+.is-playing .collage-hand-left{animation:hero-reach-left 4.2s cubic-bezier(.3,.5,.25,1) both}
+.is-playing .collage-hand-right{animation:hero-reach-right 4.2s cubic-bezier(.3,.5,.25,1) both}
+.is-playing .collage-hands-joined{animation:hero-hands-join 4.2s linear both}
+.is-playing .collage-sun{animation:hero-sunrise 4.2s cubic-bezier(.25,.62,.24,1) both}
+@keyframes hero-landscape-enter{from{opacity:0}to{opacity:1}}
+@keyframes hero-riders-enter{0%,30%{opacity:0}100%{opacity:.72}}
+@keyframes hero-reach-left{0%{transform:translate(-13%,5%) rotate(-1.5deg);opacity:0}12%{opacity:1}76%{transform:none;opacity:1}87%{opacity:1}100%{transform:none;opacity:0}}
+@keyframes hero-reach-right{0%{transform:translate(13%,6%) rotate(1.5deg);opacity:0}12%{opacity:1}76%{transform:none;opacity:1}87%{opacity:1}100%{transform:none;opacity:0}}
+@keyframes hero-hands-join{0%,80%{opacity:0}100%{opacity:1}}
+@keyframes hero-sunrise{0%,10%{transform:translate(-50%,62%) scale(.96);opacity:0}100%{transform:translate(-50%,0) scale(1);opacity:var(--sun-opacity)}}
+@media(min-width:1600px){.collage-hero-copy{padding-top:48px}}
+@media(max-width:1100px){.collage-hero{height:680px}.collage-hero-copy{padding-top:38px}.collage-site .collage-hero h1{font-size:70px}.collage-hero-description{font-size:15px;max-width:650px}.collage-sun{width:535px;height:535px;top:28px}.collage-hands{width:116%;left:-8%}.collage-riders{width:78px;height:66px;margin-top:13px;margin-bottom:18px}}
+@media(max-width:800px){.collage-hero{height:710px}.collage-site .collage-hero h1{font-size:64px}.collage-sun{width:505px;height:505px;top:25px}.collage-hands{width:140%;left:-20%}.collage-hero-description{max-width:600px}}
+@media(max-width:720px){
+ .collage-hero{height:740px;--sun-opacity:.34}.collage-hero-copy{padding:30px 20px 0;max-width:100%}
+ .collage-site .collage-hero h1{font-size:clamp(42px,8.8vw,58px);line-height:1.03;letter-spacing:-1.6px;margin-bottom:22px}.collage-hero h1>span{font-size:1.15em;padding:1px 18px 8px}
+ .collage-hero-description{font-size:14px;line-height:1.6;padding:11px 13px;max-width:420px;background:#f8f0e3f2;box-shadow:0 2px 18px #eee3ce66}
+ .collage-riders{width:64px;height:54px;margin-top:12px;margin-bottom:18px}
+ .collage-sun{width:425px;height:425px;top:33px}.collage-meadow{width:280%}.collage-hands{width:210%;left:-55%}
+ .collage-hero-actions{gap:12px;margin-top:0;flex-wrap:wrap}.collage-button{font-size:16px;min-height:46px;padding:11px 17px;gap:20px}
+ .collage-hero-footer{right:18px;bottom:29px}.collage-replay{font-size:9px;padding:8px 10px;min-height:38px}
+}
+@media(max-width:390px){.collage-hero-copy{padding-inline:17px}.collage-site .collage-hero h1{font-size:42px}.collage-hero-description{font-size:14px;padding:10px 12px}.collage-hands{width:232%;left:-66%}.collage-button{font-size:15px;padding-inline:15px;gap:18px}}
+@media(prefers-reduced-motion:reduce){
+ .collage-site .collage-sun{opacity:var(--sun-opacity)!important;transform:translate(-50%,0)!important;animation:none!important}
+ .collage-landscape,.collage-meadow{opacity:1!important;animation:none!important}.collage-riders>img{opacity:.72!important;animation:none!important}
+ .collage-site .collage-hand{display:none}.collage-site .collage-hands-joined{opacity:1!important;animation:none!important}.collage-replay{display:none!important}
+}

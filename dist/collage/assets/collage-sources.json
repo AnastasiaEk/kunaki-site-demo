@@ -48,6 +48,26 @@
       "edit_target": "hands-connection.png",
       "prompt": "Use case: precise-object-edit. Edit target: the attached original black-and-white reaching-hands newspaper cutout. Produce a layer for animation by KEEPING ONLY THE MAN'S RIGHT-SIDE FOREARM AND OPEN SUPPORTING HAND and completely deleting the woman's entire left-side forearm, hand and fingers. Preserve the original very wide 2:1 canvas and original scale/coordinates of the man's hand: dark jacket sleeve enters at the right boundary, the full open palm faces upward and extends left across the horizontal centre just as in the input, thumb above the palm, natural fingers to the left. Naturally restore the small previously hidden areas of the male palm/fingers under the removed woman's fingertips. Keep anatomy consistent: one complete male hand, five fingers, no stumps or extra fingers. Preserve archival BLACK AND WHITE halftone print, exact tonal style, subtle grain and thin irregular warm-white paper outline. Everything outside this complete male hand-and-forearm cutout must be GENUINELY TRANSPARENT alpha, including all removed left-side female regions. Do NOT auto-crop, recenter, zoom, change pose, alter arm length or change original aspect ratio. This layer will overlay the original canvas exactly. No background, rectangle, text, colour, extra hands or feminine fingertips. Fictional artistic cutout, not evidence of an actual nonprofit project.",
       "file": "hands-right.webp"
+    },
+    {
+      "name": "foreground-meadow",
+      "file": "foreground-meadow.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "new transparent compositing layer from style reference",
+      "style_reference": "russia-landscape-orthodox-v2.png",
+      "output": "foreground-meadow.png",
+      "optimized_output": "foreground-meadow.webp",
+      "transparent_background": true,
+      "description": "A separate central grassy foreground hill with a flat crest, tapered slopes, halftone photographic grass and a torn-paper edge.",
+      "note": "Fictional artistic layer, not documentation of an actual KUNAKI project.",
+      "prompt_file": "hero-refinement-prompt.md"
+    },
+    {
+      "name": "original-riders",
+      "file": "riders-original.svg",
+      "source": "Provided KUNAKI logobook: original graphite vector paths, extracted without redrawing.",
+      "ai_generated": false
     }
   ]
 }
