@@ -7,7 +7,21 @@
       "name": "russia-landscape",
       "transparent_requested": false,
       "prompt": "Use case: photorealistic-natural / editorial collage. Asset type: very wide website hero background, approximately 2:1 landscape, at least 1536 pixels wide. Create a fictional artistic regional collage of Russia, not evidence of actual KUNAKI projects. Vintage photographic newspaper-cutout aesthetic, muted forest green, slate blue, warm cream and small ochre accents, fine halftone grain, realistic archival photo textures and rough torn light paper edges. Build a coherent spacious panorama from overlapping cut photographic fragments of multiple Russian regions: on the LEFT birch branches, rocky blue Lake Baikal shore and a small traditional Northern Russian wooden house; on the RIGHT the broad Volga river, soft wooded Ural hills, a small recognisable Kazan old-city architectural silhouette including a mosque dome and minarets; along the LOWER edge a small Saint Petersburg raised drawbridge and a Far Eastern rocky sea shore; a modest distant Altai snowy ridge is optional and must not dominate. The UPPER CENTRAL HALF must remain very LIGHT and EMPTY, pale cream paper or quiet pale sky for an HTML heading and a separate animated sun. Place richer visual pieces mostly around left, right and bottom. No sun, no circular light disk, no sun rays, no hands, no people, no text, no typography, no logos, no interface, no flags, no political symbolism or slogans, no Caucasian defensive towers or horsemen, no watermark. High-end tactile mixed-media print, sophisticated rather than childish, authentic photographic geographic fragments, uneven torn paper silhouettes.",
-      "file": "russia-landscape.webp"
+      "file": "russia-landscape-orthodox-v2.webp",
+      "edits": [
+        {
+          "generator": "OpenAI built-in image_gen",
+          "ai_generated": true,
+          "operation": "targeted edit",
+          "input": "russia-landscape.png",
+          "output": "russia-landscape-orthodox-v2.png",
+          "optimized_output": "russia-landscape-orthodox-v2.webp",
+          "transparent_background": false,
+          "requested_change": "Add a white Russian Orthodox church with golden onion domes and Orthodox crosses immediately beside the existing mosque on the far-right riverbank; retain the rest of the regional collage and its empty central area.",
+          "note": "Fictional artistic regional collage, not documentation of an actual KUNAKI project.",
+          "prompt_file": "orthodox-edit-prompt.md"
+        }
+      ]
     },
     {
       "name": "hands-connection",
