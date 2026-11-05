@@ -74,6 +74,67 @@
       "file": "sun-emblem.svg",
       "source": "Two original golden vector paths from the approved KUNAKI logobook; original ray geometry preserved. Only the disk fill uses a light-centred gold gradient.",
       "ai_generated": false
+    },
+    {
+      "name": "petersburg-layer-v3",
+      "file": "petersburg-layer-v3.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "Separate transparent photographic collage layer from a style reference",
+      "reference": "User-provided desktop/mobile compositions and existing KUNAKI collage artwork",
+      "prompt_file": "reference-layer-prompts.md",
+      "encoding": "WebP quality90, original alpha channel preserved",
+      "note": "Fictional artistic illustration, not documentation of a KUNAKI project."
+    },
+    {
+      "name": "sea-layer-v3",
+      "file": "sea-layer-v3.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "Separate transparent photographic collage layer from a style reference",
+      "reference": "User-provided desktop/mobile compositions and existing KUNAKI collage artwork",
+      "prompt_file": "reference-layer-prompts.md",
+      "encoding": "WebP quality90, original alpha channel preserved",
+      "note": "Fictional artistic illustration, not documentation of a KUNAKI project."
+    },
+    {
+      "name": "mountains-layer-v4",
+      "file": "mountains-layer-v4.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "Separate transparent photographic collage layer from a style reference",
+      "reference": "User-provided desktop/mobile compositions and existing KUNAKI collage artwork",
+      "prompt_file": "reference-layer-prompts.md",
+      "encoding": "WebP quality90, original alpha channel preserved",
+      "note": "Fictional artistic illustration, not documentation of a KUNAKI project."
+    },
+    {
+      "name": "meadow-layer-v4",
+      "file": "meadow-layer-v4.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "Separate transparent photographic collage layer from a style reference",
+      "reference": "User-provided desktop/mobile compositions and existing KUNAKI collage artwork",
+      "prompt_file": "reference-layer-prompts.md",
+      "encoding": "WebP quality90, original alpha channel preserved",
+      "note": "Fictional artistic illustration, not documentation of a KUNAKI project."
+    },
+    {
+      "name": "birch-layer-v4",
+      "file": "birch-layer-v4.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "Separate transparent photographic collage layer from a style reference",
+      "reference": "User-provided desktop/mobile compositions and existing KUNAKI collage artwork",
+      "prompt_file": "reference-layer-prompts.md",
+      "encoding": "WebP quality90, original alpha channel preserved",
+      "note": "Fictional artistic illustration, not documentation of a KUNAKI project."
+    },
+    {
+      "name": "emblem-rays-reference",
+      "file": "sun-rays-reference.svg",
+      "source": "Original outer ray path from the approved KUNAKI logobook; separate circular disk composed in CSS.",
+      "ai_generated": false
     }
   ]
 }

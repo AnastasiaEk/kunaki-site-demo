@@ -6,10 +6,16 @@
   const meadow=document.querySelector('.collage-meadow');
   const sun=document.querySelector('.collage-sun');
   const description=document.querySelector('.collage-hero-description');
+  const heading=document.querySelector('#hero-title');
+  const mountains=document.querySelector('.collage-mountains');
+  const petersburg=document.querySelector('.collage-petersburg');
+  const sea=document.querySelector('.collage-sea');
+  const architecture=document.querySelector('.collage-architecture');
+  const mobileMountains=[...document.querySelectorAll('.collage-mobile-mountain')];
   const hands=document.querySelector('.collage-hands');
   const replay=document.querySelector('.collage-replay');
   const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
-  const layers=[...document.querySelectorAll('.collage-hands img, .collage-landscape, .collage-meadow, .collage-riders img, .collage-sun')];
+  const layers=[...document.querySelectorAll('.collage-scene img, .collage-riders img')];
   let finishTimer;
   let layoutFrame;
   let ready=false;
@@ -18,22 +24,29 @@
     layoutFrame=undefined;
     const heroTop=scene.getBoundingClientRect().top;
     const actionBottom=actions.getBoundingClientRect().bottom-heroTop;
-    const handHeight=hands.getBoundingClientRect().width/2;
-    // Source alpha occupies y=.215–.815; central fingers begin at y=.33.
-    // Fit the whole printed cutout, with air after the buttons and below its ink.
-    const handTop=actionBottom+38-handHeight*.33;
-    const minimum=Math.ceil(handTop+handHeight*.82+30)+'px';
+    const mobile=window.matchMedia('(max-width: 720px)').matches;
+    const handHeight=hands.getBoundingClientRect().height;
+    // Sleeves enter the frame from its sides; keep the central palms clear of actions.
+    const handTop=actionBottom+(mobile?30:34)-handHeight*.33;
+    const minimum=Math.ceil(handTop+handHeight*(mobile?.82:.75)+(mobile?20:12))+'px';
     if(scene.style.minHeight!==minimum)scene.style.minHeight=minimum;
     hands.style.top=Math.round(handTop)+'px';
-    const ground=riders.getBoundingClientRect().bottom-scene.getBoundingClientRect().top-2;
-    document.querySelectorAll('.collage-regional-low').forEach(layer=>{layer.style.top=Math.round(ground-80)+'px';});
-    const meadowHeight=meadow.getBoundingClientRect().width/2;
+    const ground=riders.getBoundingClientRect().bottom-heroTop-1;
+    const crest=Number(meadow.dataset.crest);
+    const meadowWidth=Math.max(scene.clientWidth*(mobile?3.1:1.06),2*(scene.clientHeight-ground+16)/(1-crest));
+    const meadowHeight=meadowWidth/2;
+    meadow.style.width=Math.round(meadowWidth)+'px';
     meadow.style.height=Math.round(meadowHeight)+'px';
-    meadow.style.top=Math.round(ground-meadowHeight*Number(meadow.dataset.crest))+'px';
-    // The original emblem's disk centre is 55.898% down its 336×281 viewBox.
+    meadow.style.top=Math.round(ground-meadowHeight*crest)+'px';
+    mountains.style.top=Math.round(ground-mountains.getBoundingClientRect().height*Number(mountains.dataset.crest))+'px';
+    petersburg.style.top=Math.round(ground-petersburg.getBoundingClientRect().height*.8)+'px';
+    sea.style.top=Math.round(ground-sea.getBoundingClientRect().height*(mobile ? .68 : .73))+'px';
+    architecture.style.top=Math.round(ground-(mobile?75:38))+'px';
+    mobileMountains.forEach(layer=>{layer.style.top=Math.round(ground-125)+'px';});
+    // On phones the whole sun moves below the headline; desktop centres it behind the copy.
     const descriptionBox=description.getBoundingClientRect();
-    const diskCentre=descriptionBox.top-heroTop+descriptionBox.height/2;
-    sun.style.top=Math.round(diskCentre-sun.offsetWidth*281/336*.55898)+'px';
+    const sunTop=mobile?heading.getBoundingClientRect().bottom-heroTop+8:descriptionBox.top-heroTop+descriptionBox.height/2-sun.offsetHeight*.55898;
+    sun.style.top=Math.round(sunTop)+'px';
   }
   function scheduleLayout(){if(layoutFrame===undefined)layoutFrame=requestAnimationFrame(layoutScene);}
   const observer=new ResizeObserver(scheduleLayout);
