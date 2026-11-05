@@ -6,7 +6,6 @@
   const meadow=document.querySelector('.collage-meadow');
   const sun=document.querySelector('.collage-sun');
   const description=document.querySelector('.collage-hero-description');
-  const heading=document.querySelector('#hero-title');
   const mountains=document.querySelector('.collage-mountains');
   const petersburg=document.querySelector('.collage-petersburg');
   const sea=document.querySelector('.collage-sea');
@@ -26,9 +25,9 @@
     const actionBottom=actions.getBoundingClientRect().bottom-heroTop;
     const mobile=window.matchMedia('(max-width: 720px)').matches;
     const handHeight=hands.getBoundingClientRect().height;
-    // Sleeves enter the frame from its sides; keep the central palms clear of actions.
-    const handTop=actionBottom+(mobile?30:34)-handHeight*.33;
-    const minimum=Math.ceil(handTop+handHeight*(mobile?.82:.75)+(mobile?20:12))+'px';
+    // Keep the source's natural 2:1 proportions and fit its complete printed cutout.
+    const handTop=actionBottom+36-handHeight*.33;
+    const minimum=Math.ceil(handTop+handHeight*.82+28)+'px';
     if(scene.style.minHeight!==minimum)scene.style.minHeight=minimum;
     hands.style.top=Math.round(handTop)+'px';
     const ground=riders.getBoundingClientRect().bottom-heroTop-1;
@@ -43,9 +42,9 @@
     sea.style.top=Math.round(ground-sea.getBoundingClientRect().height*(mobile ? .68 : .73))+'px';
     architecture.style.top=Math.round(ground-(mobile?75:38))+'px';
     mobileMountains.forEach(layer=>{layer.style.top=Math.round(ground-125)+'px';});
-    // On phones the whole sun moves below the headline; desktop centres it behind the copy.
+    // Natural emblem geometry; only the ray layer is translucent.
     const descriptionBox=description.getBoundingClientRect();
-    const sunTop=mobile?heading.getBoundingClientRect().bottom-heroTop+8:descriptionBox.top-heroTop+descriptionBox.height/2-sun.offsetHeight*.55898;
+    const sunTop=descriptionBox.top-heroTop+descriptionBox.height/2-sun.offsetHeight*.55898;
     sun.style.top=Math.round(sunTop)+'px';
   }
   function scheduleLayout(){if(layoutFrame===undefined)layoutFrame=requestAnimationFrame(layoutScene);}
