@@ -68,6 +68,12 @@
       "file": "riders-original.svg",
       "source": "Provided KUNAKI logobook: original graphite vector paths, extracted without redrawing.",
       "ai_generated": false
+    },
+    {
+      "name": "original-emblem-sun",
+      "file": "sun-emblem.svg",
+      "source": "Two original golden vector paths from the approved KUNAKI logobook; original ray geometry preserved. Only the disk fill uses a light-centred gold gradient.",
+      "ai_generated": false
     }
   ]
 }
