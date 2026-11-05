@@ -25,6 +25,10 @@
     const actionBottom=actions.getBoundingClientRect().bottom-heroTop;
     const mobile=window.matchMedia('(max-width: 720px)').matches;
     const handHeight=hands.getBoundingClientRect().height;
+    const handWidth=hands.getBoundingClientRect().width;
+    hands.style.setProperty('--hand-width',Math.round(handWidth)+'px');
+    hands.style.setProperty('--sleeve-reach',Math.max(0,Math.ceil((scene.clientWidth-handWidth)/2)+2)+'px');
+    hands.style.setProperty('--sleeve-overlap',Math.round(handWidth*.055)+'px');
     // Keep the source's natural 2:1 proportions and fit its complete printed cutout.
     const handTop=actionBottom+36-handHeight*.33;
     const minimum=Math.ceil(handTop+handHeight*.82+28)+'px';
@@ -44,7 +48,7 @@
     mobileMountains.forEach(layer=>{layer.style.top=Math.round(ground-125)+'px';});
     // Natural emblem geometry; only the ray layer is translucent.
     const descriptionBox=description.getBoundingClientRect();
-    const sunTop=descriptionBox.top-heroTop+descriptionBox.height/2-sun.offsetHeight*.55898;
+    const sunTop=descriptionBox.top-heroTop+descriptionBox.height/2+(mobile?0:28)-sun.offsetHeight*.55898;
     sun.style.top=Math.round(sunTop)+'px';
   }
   function scheduleLayout(){if(layoutFrame===undefined)layoutFrame=requestAnimationFrame(layoutScene);}

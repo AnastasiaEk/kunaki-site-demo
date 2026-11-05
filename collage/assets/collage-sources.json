@@ -135,6 +135,28 @@
       "file": "sun-rays-reference.svg",
       "source": "Original outer ray path from the approved KUNAKI logobook; separate circular disk composed in CSS.",
       "ai_generated": false
+    },
+    {
+      "name": "sleeve-left-extension-v1",
+      "file": "sleeve-left-extension-v1.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "Separate transparent fabric continuation; original hands unchanged",
+      "style_reference": "hands-connection.png",
+      "prompt_file": "sleeve-extension-prompts.md",
+      "encoding": "WebP quality90, alpha preserved",
+      "note": "Fictional collage artwork. The original central hands are neither regenerated nor stretched."
+    },
+    {
+      "name": "sleeve-right-extension-v1",
+      "file": "sleeve-right-extension-v1.webp",
+      "generator": "OpenAI built-in image_gen",
+      "ai_generated": true,
+      "operation": "Separate transparent fabric continuation; original hands unchanged",
+      "style_reference": "hands-connection.png",
+      "prompt_file": "sleeve-extension-prompts.md",
+      "encoding": "WebP quality90, alpha preserved",
+      "note": "Fictional collage artwork. The original central hands are neither regenerated nor stretched."
     }
   ]
 }
