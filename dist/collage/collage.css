@@ -116,3 +116,13 @@
 @media(max-width:1100px){.collage-quick-card>strong{font-size:18px}}
 @media(max-width:800px){.collage-quick-card{min-height:148px}.collage-quick-card>strong{font-size:21px}}
 @media(max-width:720px){.collage-quick-card{min-height:175px}.collage-quick-card>strong{font-size:18px;line-height:1.12}}
+
+/* Keep the poetry cover on one axis with space between its elements. */
+.collage-site .project-poetry{--poetry-inset:27px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:62px var(--poetry-inset) 26px}
+.collage-site .project-poetry .project-tag{left:var(--poetry-inset)}
+.collage-site .poetry-quote{position:static;display:block;flex:none;font-size:44px;line-height:1}
+.collage-site .poetry-title{position:static;flex:none;font-size:35px;line-height:1.08}
+.collage-site .poetry-title em{font-size:1em}
+.collage-site .poetry-line{position:static;flex:none;margin-top:auto;transform:none}
+@media(min-width:721px) and (max-width:1100px){.collage-site .poetry-title{font-size:30px}}
+@media(max-width:720px){.collage-site .poetry-title{font-size:38px}}
