@@ -59,17 +59,20 @@
 @keyframes hero-hands-join{0%,80%{opacity:0}100%{opacity:1}}
 @keyframes hero-sunrise{0%,10%{transform:translate(-50%,35%) scale(.96);opacity:0}100%{transform:translate(-50%,0) scale(1);opacity:var(--sun-opacity)}}
 @media(min-width:721px){
- .collage-hands{width:min(calc(100% - 64px),1440px);aspect-ratio:3}
+ .collage-hands{width:120%;aspect-ratio:3}
  .collage-sleeve-extension{display:none}
  .collage-hand,.collage-hands-joined{mask-image:none}
  /* Split through transparent space so each complete hand can move independently. */
- .collage-hand-left{clip-path:polygon(0 0,55% 0,55% 40%,49% 46%,38% 59%,0 59%)}
- .collage-hand-right{clip-path:polygon(55% 0,100% 0,100% 100%,0 100%,0 59%,38% 59%,49% 46%,55% 40%)}
+ .collage-hand-left{clip-path:polygon(0 0,55% 0,55% 40%,49% 46%,38% 59%,0 59%);transform:translate(2.25%,14.15%)}
+ .collage-hand-right{clip-path:polygon(55% 0,100% 0,100% 100%,0 100%,0 59%,38% 59%,49% 46%,55% 40%);transform:translate(-2.25%,-14.15%)}
+ .collage-hand-motion-left,.collage-hand-motion-right{opacity:1}
+ .collage-hand-motion-joined{display:none}
+ .will-animate .collage-hand-motion-left,.will-animate .collage-hand-motion-right{opacity:0}
  .is-playing .collage-hand-motion-left{animation-name:hero-vintage-reach-left}
  .is-playing .collage-hand-motion-right{animation-name:hero-vintage-reach-right}
 }
-@keyframes hero-vintage-reach-left{0%{transform:translate(-2%,3%);opacity:0}12%{opacity:1}76%{transform:none;opacity:1}87%{opacity:1}100%{transform:none;opacity:0}}
-@keyframes hero-vintage-reach-right{0%{transform:translate(2%,3%);opacity:0}12%{opacity:1}76%{transform:none;opacity:1}87%{opacity:1}100%{transform:none;opacity:0}}
+@keyframes hero-vintage-reach-left{0%{transform:translate(-10%,-3%);opacity:0}12%{opacity:1}76%,100%{transform:none;opacity:1}}
+@keyframes hero-vintage-reach-right{0%{transform:translate(10%,3%);opacity:0}12%{opacity:1}76%,100%{transform:none;opacity:1}}
 @media(min-width:1101px){.collage-site .header-inner{height:88px}.collage-brand-symbol{width:68px;height:59px}.collage-brand-lockup img{width:146px;height:38px}}
 @media(max-width:1100px){.collage-hero{height:740px;--sun-width:940px}.collage-hero-copy{padding-top:60px}.collage-site .collage-hero h1{font-size:62px}.collage-hero-description{font-size:17px;max-width:440px}.collage-riders{width:70px;height:59px}.collage-button{font-size:18px}.collage-petersburg{width:48%;left:-5%}.collage-sea{width:49%;right:-5%}.collage-architecture{right:4%;width:25%}}
 @media(max-width:800px){.collage-site .collage-hero h1{font-size:58px}.collage-hero-description{max-width:425px}}
@@ -108,4 +111,9 @@
  .collage-landscape,.collage-terrain-piece,.collage-architecture,.collage-mobile-mountain,.collage-birches,.collage-meadow{opacity:1!important;animation:none!important}.collage-riders>img{opacity:.95!important;animation:none!important}
  .collage-site .collage-hand{display:none}.collage-site .collage-hands-joined{opacity:1!important;animation:none!important}.collage-replay{display:none!important}
  .collage-hand-motion-left,.collage-hand-motion-right{display:none}.collage-hand-motion-joined{opacity:1!important;animation:none!important}
+}
+@media(min-width:721px) and (prefers-reduced-motion:reduce){
+ .collage-site .collage-hand{display:block}
+ .collage-hand-motion-left,.collage-hand-motion-right{display:block;opacity:1!important;animation:none!important}
+ .collage-hand-motion-joined{display:none}
 }
