@@ -58,8 +58,20 @@
 @keyframes hero-reach-right{0%{transform:translate(10%,6%) rotate(1.5deg);opacity:0}12%{opacity:1}76%{transform:none;opacity:1}87%{opacity:1}100%{transform:none;opacity:0}}
 @keyframes hero-hands-join{0%,80%{opacity:0}100%{opacity:1}}
 @keyframes hero-sunrise{0%,10%{transform:translate(-50%,35%) scale(.96);opacity:0}100%{transform:translate(-50%,0) scale(1);opacity:var(--sun-opacity)}}
+@media(min-width:721px){
+ .collage-hands{width:min(calc(100% - 64px),1440px);aspect-ratio:3}
+ .collage-sleeve-extension{display:none}
+ .collage-hand,.collage-hands-joined{mask-image:none}
+ /* Split through transparent space so each complete hand can move independently. */
+ .collage-hand-left{clip-path:polygon(0 0,55% 0,55% 40%,49% 46%,38% 59%,0 59%)}
+ .collage-hand-right{clip-path:polygon(55% 0,100% 0,100% 100%,0 100%,0 59%,38% 59%,49% 46%,55% 40%)}
+ .is-playing .collage-hand-motion-left{animation-name:hero-vintage-reach-left}
+ .is-playing .collage-hand-motion-right{animation-name:hero-vintage-reach-right}
+}
+@keyframes hero-vintage-reach-left{0%{transform:translate(-2%,3%);opacity:0}12%{opacity:1}76%{transform:none;opacity:1}87%{opacity:1}100%{transform:none;opacity:0}}
+@keyframes hero-vintage-reach-right{0%{transform:translate(2%,3%);opacity:0}12%{opacity:1}76%{transform:none;opacity:1}87%{opacity:1}100%{transform:none;opacity:0}}
 @media(min-width:1101px){.collage-site .header-inner{height:88px}.collage-brand-symbol{width:68px;height:59px}.collage-brand-lockup img{width:146px;height:38px}}
-@media(max-width:1100px){.collage-hero{height:740px;--sun-width:940px}.collage-hero-copy{padding-top:60px}.collage-site .collage-hero h1{font-size:62px}.collage-hero-description{font-size:17px;max-width:440px}.collage-riders{width:70px;height:59px}.collage-button{font-size:18px}.collage-hands{width:92%}.collage-petersburg{width:48%;left:-5%}.collage-sea{width:49%;right:-5%}.collage-architecture{right:4%;width:25%}}
+@media(max-width:1100px){.collage-hero{height:740px;--sun-width:940px}.collage-hero-copy{padding-top:60px}.collage-site .collage-hero h1{font-size:62px}.collage-hero-description{font-size:17px;max-width:440px}.collage-riders{width:70px;height:59px}.collage-button{font-size:18px}.collage-petersburg{width:48%;left:-5%}.collage-sea{width:49%;right:-5%}.collage-architecture{right:4%;width:25%}}
 @media(max-width:800px){.collage-site .collage-hero h1{font-size:58px}.collage-hero-description{max-width:425px}}
 @media(max-width:720px){
  .collage-hero{height:auto;min-height:760px;--sun-width:clamp(640px,170vw,660px)}

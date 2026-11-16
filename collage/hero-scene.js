@@ -29,9 +29,9 @@
     hands.style.setProperty('--hand-width',Math.round(handWidth)+'px');
     hands.style.setProperty('--sleeve-reach',Math.max(0,Math.ceil((scene.clientWidth-handWidth)/2)+2)+'px');
     hands.style.setProperty('--sleeve-overlap',Math.round(handWidth*.055)+'px');
-    // Keep the source's natural 2:1 proportions and fit its complete printed cutout.
-    const handTop=actionBottom+36-handHeight*.33;
-    const minimum=Math.ceil(handTop+handHeight*.82+28)+'px';
+    // Desktop uses the complete 3:1 artwork; keep it clear of the torn bottom edge.
+    const handTop=mobile? actionBottom+36-handHeight*.33 : actionBottom+24-handHeight*(57/724);
+    const minimum=Math.ceil(handTop+handHeight*(mobile ? .82 : 1)+(mobile ? 28 : 48))+'px';
     if(scene.style.minHeight!==minimum)scene.style.minHeight=minimum;
     hands.style.top=Math.round(handTop)+'px';
     const ground=riders.getBoundingClientRect().bottom-heroTop-1;
