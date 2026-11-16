@@ -15,7 +15,7 @@
   <link rel="icon" href="../assets/logo-symbol.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="assets/russia-landscape-orthodox-v2.webp"><link rel="preload" as="image" media="(max-width: 720px)" href="assets/hands-connection.webp"><link rel="preload" as="image" media="(min-width: 721px)" href="assets/hands-vintage.png">
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../author.css"><link rel="stylesheet" href="collage.css?v=arrows-20261105"><link rel="stylesheet" href="hero-refinement.css?v=contact-20261117">
+  <link rel="stylesheet" href="../author.css"><link rel="stylesheet" href="collage.css?v=arrows-20261105"><link rel="stylesheet" href="hero-refinement.css?v=paper-20261117">
   <script src="app.js?v=arrows-20261105" defer></script><script src="hero-scene.js?v=contact-20261117" defer></script>
 </head>
 <body class="collage-site">
@@ -182,6 +182,16 @@
   <div class="toast" role="status" aria-live="polite" hidden></div>
 
   <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <!-- Match the collage paper edges (#e8d2b6); keep ink midtones and alpha intact. -->
+    <filter id="hand-paper-tone" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="table" tableValues="0 .125 .25 .375 .5 .625 .75 .91 .955"/>
+        <feFuncG type="table" tableValues="0 .125 .25 .375 .5 .625 .75 .82 .88"/>
+        <feFuncB type="table" tableValues="0 .125 .25 .375 .5 .625 .75 .71 .78"/>
+        <feFuncA type="identity"/>
+      </feComponentTransfer>
+    </filter>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
     <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
     <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-4a6 6 0 0 1 12 0v4M16 4a3 3 0 0 1 0 6m3 11v-4a6 6 0 0 0-2-4"/></symbol>
