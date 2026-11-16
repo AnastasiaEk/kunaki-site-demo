@@ -9,7 +9,7 @@
       "source": "User-provided artwork: Винтажные руки, тянущиеся навстречу.png",
       "ai_generated": null,
       "dimensions": [2172, 724],
-      "operation": "Original PNG copied without image edits. Desktop animation separates the two silhouettes with CSS clips through transparent space."
+      "operation": "Original PNG copied without image edits. Desktop CSS separates the silhouettes through transparent space, scales the canvas to 120% viewport width and translates the two layers until fingertips rest on the open palm."
     },
     {
       "name": "russia-landscape",
