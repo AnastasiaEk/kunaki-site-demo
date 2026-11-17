@@ -87,7 +87,7 @@ main{overflow-x:clip}
 /* Clear contrast for secondary reading content. */
 .hero-secondary,.hero-location,.hero-note div>span,.photo-caption,.intro-strip>div,.section-lead,.muted,.about-label .eyebrow,.about-label>span,.about-copy>p:not(.about-big),.values span,.filter:not(.active),.project-meta,.project-card>p,.project-footnote,.people-copy>p,.director span,.image-note,.contacts-grid>div>span,.contact-main>span:first-child,.contact-address small,.contact-address>a,.documents-row div>span,.footer-top>p,.footer-bottom,.footer-bottom>button{color:#626f5d}
 .dialog p,.dialog ul,.dialog .eyebrow,.credit-list,.legal-list dt{color:#626f5d}
-@media(min-width:721px){
+@media(min-width:721px) and (max-width:1100px){
  .about-section{padding-block:56px}
  .about-grid{grid-template-columns:170px minmax(0,1fr) 250px;gap:40px}
  .about-copy h2{font-size:54px;line-height:1.08;margin-bottom:16px}

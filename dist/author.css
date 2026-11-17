@@ -133,3 +133,22 @@
  .join-section{margin-top:5px}.contacts-next{gap:16px;padding-top:24px}.contacts-next>p{width:100%;font-size:15px}.contacts-next .text-button{font-size:12px;gap:22px}
 }
 @media(max-width:380px){.header .brand-description{font-size:7px}.header-inner{gap:5px}.brand{gap:8px}.hero-visual{height:350px}.hero-description{font-size:18px}.hero-buttons .button{font-size:12px}.project-cover-title{font-size:35px}.people-visual{height:290px}}
+/* Larger, tighter reading layout for desktop screens. */
+@media(min-width:1101px){
+ .about-section{margin-top:32px;padding-block:40px 0}
+ .about-grid{grid-template-columns:150px minmax(0,1fr) 205px;gap:32px}
+ .about-label .eyebrow{font-size:10px;letter-spacing:1.2px}
+ .about-label img{width:145px;height:auto;margin-top:24px}
+ .about-label>span{font-size:13px;line-height:1.55;margin-top:16px}
+ .about-copy{min-width:0}
+ .about-copy h2{font-size:54px;line-height:1.08;margin-bottom:12px}
+ .about-copy .about-big{font-size:clamp(24px,1.9vw,28px);line-height:1.35;margin-bottom:16px}
+ .about-copy .desktop-break{display:none}
+ .about-copy>p:not(.about-big){font-size:clamp(20px,1.5vw,22px);line-height:1.5;max-width:none;margin-bottom:14px}
+ .about-copy .text-button{margin-top:0;padding-block:10px;font-size:16px}
+ .about-aside{margin-top:12px;padding-left:24px}
+ .about-aside>p{font-size:28px;line-height:1.25}
+ .about-aside .values{margin-top:18px;gap:6px}
+ .about-aside .values span{font-size:12px}
+ .about-principles{margin-top:28px}
+}
