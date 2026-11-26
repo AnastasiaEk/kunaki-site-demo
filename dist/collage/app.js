@@ -4,7 +4,7 @@ const dialog = $('#detail-dialog');
 const dialogContent = $('#dialog-content');
 let lastTrigger;
 let toastTimer;
-const mail = 'stroiti-gk@mail.ru';
+const mail = 'kunaki-ano@mail.ru';
 const escapeHTML = value => String(value).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 
 function openDialog(content, trigger) {
@@ -71,6 +71,7 @@ $$('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
 }));
 
 const joinTypes = {
+  supportRequest:{eyebrow:'ПОДДЕРЖКА ИНИЦИАТИВ',title:'Ваша поддержка<br>становится делом.',description:'Расскажите, как вы хотите помочь: временем, навыками, материалами или финансовой поддержкой. Команда обсудит с вами детали.',subject:'Поддержка инициатив — Кунаки',label:'Как вы хотите помочь',placeholder:'Какую инициативу и каким способом вы хотите поддержать?'},
   idea:{eyebrow:'ДАВАЙТЕ СОЗДАВАТЬ ВМЕСТЕ',title:'У хороших идей<br>должна быть команда.',description:'Расскажите, что хотите сделать и какой поддержки не хватает. Обсудим, как можем быть полезны друг другу.',subject:'Хочу предложить идею — Кунаки',label:'Ваша идея',placeholder:'Что вы хотите создать? Кому это поможет?'},
   volunteer:{eyebrow:'ВАШЕ УЧАСТИЕ ИМЕЕТ ЗНАЧЕНИЕ',title:'Найдём дело<br>по вашим силам.',description:'Расскажите о себе, своих навыках и о том, чем хотели бы помогать. Команда обсудит с вами возможности участия.',subject:'Хочу присоединиться — Кунаки',label:'Немного о вас',placeholder:'Что вам интересно? Чем вы готовы помочь?'},
   partner:{eyebrow:'ПАРТНЁРСТВО НА ОБЩИХ ЦЕННОСТЯХ',title:'Объединим<br>наши возможности.',description:'Совместные инициативы, профессиональный опыт, материалы или информационная поддержка — обсудим подходящий формат сотрудничества.',subject:'Предложение о партнёрстве — Кунаки',label:'О сотрудничестве',placeholder:'Расскажите об организации и предложении'}
@@ -78,16 +79,16 @@ const joinTypes = {
 function showJoin(type,trigger) {
   closeMenu();
   if(type==='support'){
-    openDialog(`<div class="eyebrow">ПОМОЧЬ МОЖНО ПО-РАЗНОМУ</div><h2 id="dialog-title">Ваша поддержка<br>становится делом.</h2><p>Можно поделиться временем и навыками, помочь материалами, предложить сотрудничество или обсудить финансовую поддержку конкретной инициативы.</p><div class="document-links"><button class="text-button" data-join="volunteer">Помочь делом <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></button><button class="text-button" data-join="partner">Стать партнёром <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></button></div><p class="dialog-note">Приём пожертвований на сайте пока не подключён. Для обсуждения финансовой поддержки и получения банковских реквизитов свяжитесь с командой.</p><div class="dialog-contact"><a href="mailto:${mail}?subject=${encodeURIComponent('Хочу поддержать Кунаки')}">${mail} <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></a><a href="tel:+79826543388">+7 (982) 654-33-88</a></div><button class="copy-button" data-copy="email">Скопировать электронную почту</button>`,trigger);return;
+    openDialog(`<div class="eyebrow">ПОМОЧЬ МОЖНО ПО-РАЗНОМУ</div><h2 id="dialog-title">Ваша поддержка<br>становится делом.</h2><p>Можно поделиться временем и навыками, помочь материалами, предложить сотрудничество или обсудить финансовую поддержку конкретной инициативы.</p><div class="document-links"><button class="text-button" data-join="volunteer">Помочь делом <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></button><button class="text-button" data-join="partner">Стать партнёром <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></button></div><p class="dialog-note">Приём пожертвований на сайте пока не подключён. Для обсуждения финансовой поддержки и получения банковских реквизитов свяжитесь с командой.</p><div class="dialog-contact"><a href="mailto:${mail}?subject=${encodeURIComponent('Хочу поддержать Кунаки')}">${mail} <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></a><a href="tel:+79826543388">+7 (982) 654-33-88</a></div><button class="button" data-join="supportRequest">Обсудить поддержку</button><button class="copy-button" data-copy="email">Скопировать электронную почту</button>`,trigger);return;
   }
   const j=joinTypes[type]||joinTypes.idea;
-  openDialog(`<div class="eyebrow">${j.eyebrow}</div><h2 id="dialog-title">${j.title}</h2><p>${j.description}</p><form class="join-form" data-subject="${j.subject}"><label>Как к вам обращаться<input name="name" autocomplete="name" required maxlength="100" placeholder="Ваше имя"></label><label>Как с вами связаться<input name="contact" autocomplete="email" required maxlength="160" placeholder="Телефон или электронная почта"></label><label>${j.label}<textarea name="message" required maxlength="5000" placeholder="${j.placeholder}"></textarea></label><button class="button" type="submit">Открыть письмо <span aria-hidden="true"><svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></span></button><p class="form-note">Откроется ваше почтовое приложение с готовым письмом на <a href="mailto:${mail}">${mail}</a>. Проверьте его и отправьте самостоятельно. Сайт не сохраняет данные формы.</p></form><div class="email-fallback" hidden></div>`,trigger);
+  openDialog(`<div class="eyebrow">${j.eyebrow}</div><h2 id="dialog-title">${j.title}</h2><p>${j.description}</p><form class="join-form" data-subject="${j.subject}"><label>Как к вам обращаться<input name="name" autocomplete="name" required maxlength="100" placeholder="Ваше имя"></label><label>Как с вами связаться<input name="contact" autocomplete="email" required maxlength="160" placeholder="Телефон или электронная почта"></label><label>${j.label}<textarea name="message" required maxlength="5000" placeholder="${j.placeholder}"></textarea></label><button class="button" type="submit">Отправить заявку <span aria-hidden="true"><svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></span></button><p class="form-note">Обращение будет отправлено команде на <a href="mailto:${mail}">${mail}</a>. Укажите контакт, по которому мы сможем вам ответить.</p></form><div class="email-fallback" role="status" aria-live="polite" tabindex="-1" hidden></div>`,trigger);
 }
 
-const legalText='АНО «ЦПКСИ «КУНАКИ»\nАвтономная некоммерческая организация «Центр Поддержки Культурных и Социальных Инициатив «КУНАКИ»\nИНН: 3700039908\nКПП: 370001001\nОГРН: 1263700003973\nДата регистрации: 24.08.2026\nЮридический адрес: 153003, Ивановская область, г. Иваново, ул. Зверева, д. 8\nДиректор: Овсянников Алексей Валерьевич\nЭлектронная почта: stroiti-gk@mail.ru\nТелефоны: +7 (982) 654-33-88; +7 (903) 632-69-81\nБанковские реквизиты предоставляются по запросу.';
+const legalText='АНО «ЦПКСИ «КУНАКИ»\nАвтономная некоммерческая организация «Центр Поддержки Культурных и Социальных Инициатив «КУНАКИ»\nИНН: 3700039908\nКПП: 370001001\nОГРН: 1263700003973\nДата регистрации: 24.08.2026\nЮридический адрес: 153003, Ивановская область, г. Иваново, ул. Зверева, д. 8\nДиректор: Овсянников Алексей Валерьевич\nЭлектронная почта: kunaki-ano@mail.ru\nТелефоны: +7 (982) 654-33-88; +7 (903) 632-69-81\nБанковские реквизиты предоставляются по запросу.';
 const specialDialogs={
   manifesto:()=>`<div class="eyebrow">МАНИФЕСТ КУНАКИ</div><h2 id="dialog-title">Всё начинается<br>с человека.</h2><p>С его идеи, характера, таланта, поступка и желания что-то изменить.</p><p>Каждый человек обладает собственной силой. Но когда встречаются люди, объединённые общими ценностями и стремлением создавать что-то значимое, эта сила становится больше.</p><p>Мы верим в людей, в силу команды и в возможности, которые рождаются благодаря единству.</p><p>Мы объединяем людей, поддерживаем инициативы и помогаем идеям становиться реальностью.</p><p><strong>Потому что за каждым большим делом всегда стоят люди.</strong></p><button class="button" data-join="volunteer">Стать частью команды <span aria-hidden="true"><svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></span></button>`,
-  documents:()=>`<div class="eyebrow">ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ</div><h2 id="dialog-title">Документы<br>и реквизиты</h2><p>Автономная некоммерческая организация «Центр Поддержки Культурных и Социальных Инициатив «КУНАКИ»</p><dl class="legal-list"><dt>Кратко</dt><dd>АНО «ЦПКСИ «КУНАКИ»</dd><dt>ИНН / КПП</dt><dd>3700039908 / 370001001</dd><dt>ОГРН</dt><dd>1263700003973</dd><dt>Регистрация</dt><dd>24 августа 2026 года</dd><dt>Адрес</dt><dd>153003, Ивановская область,<br>г. Иваново, ул. Зверева, д. 8</dd><dt>Директор</dt><dd>Овсянников Алексей Валерьевич</dd></dl><div class="document-links"><a href="mailto:stroiti-gk@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B0%20%D0%9A%D1%83%D0%BD%D0%B0%D0%BA%D0%B8">Запросить устав <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></a><a href="mailto:stroiti-gk@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8%20%D0%9A%D1%83%D0%BD%D0%B0%D0%BA%D0%B8">Запросить карточку организации <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></a></div><button class="copy-button" data-copy="legal">Скопировать реквизиты</button><p class="dialog-note">Официальные документы и банковские реквизиты предоставляются по запросу: <a href="mailto:${mail}">${mail}</a>.</p>`,
+  documents:()=>`<div class="eyebrow">ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ</div><h2 id="dialog-title">Документы<br>и реквизиты</h2><p>Автономная некоммерческая организация «Центр Поддержки Культурных и Социальных Инициатив «КУНАКИ»</p><dl class="legal-list"><dt>Кратко</dt><dd>АНО «ЦПКСИ «КУНАКИ»</dd><dt>ИНН / КПП</dt><dd>3700039908 / 370001001</dd><dt>ОГРН</dt><dd>1263700003973</dd><dt>Регистрация</dt><dd>24 августа 2026 года</dd><dt>Адрес</dt><dd>153003, Ивановская область,<br>г. Иваново, ул. Зверева, д. 8</dd><dt>Директор</dt><dd>Овсянников Алексей Валерьевич</dd></dl><div class="document-links"><a href="mailto:kunaki-ano@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%83%D1%81%D1%82%D0%B0%D0%B2%D0%B0%20%D0%9A%D1%83%D0%BD%D0%B0%D0%BA%D0%B8">Запросить устав <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></a><a href="mailto:kunaki-ano@mail.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B8%20%D0%9A%D1%83%D0%BD%D0%B0%D0%BA%D0%B8">Запросить карточку организации <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></a></div><button class="copy-button" data-copy="legal">Скопировать реквизиты</button><p class="dialog-note">Официальные документы и банковские реквизиты предоставляются по запросу: <a href="mailto:${mail}">${mail}</a>.</p>`,
   credits:()=>`<div class="eyebrow">ОБ ИЗОБРАЖЕНИЯХ</div><h2 id="dialog-title">Истории в коллаже</h2><p>Панорамы регионов и чёрно-белые руки — художественные иллюстрации, созданные с помощью ИИ для этой вариации сайта. Это не фотоотчёты о проектах и не сведения о географии работы АНО.</p><p>Изображения людей в остальных разделах также иллюстративные. Они не являются портретами команды.</p><div class="credit-list"><p><a href="assets/collage-sources.json" target="_blank" rel="noopener noreferrer">Происхождение коллажей</a> · <a href="../assets/photo-sources.json" target="_blank" rel="noopener noreferrer">Другие изображения</a></p><p>Знак солнца и леттеринг извлечены из оригинального логобука. Обратный белый леттеринг соответствует утверждённой версии на зелёном.</p><p>Шрифт Manrope: <a href="../assets/fonts/OFL.txt" target="_blank" rel="noopener noreferrer">лицензия SIL Open Font License</a>.</p></div>`
 };
 async function copyValue(key) {
@@ -106,17 +107,53 @@ document.addEventListener('click',event=>{
   else if(target.dataset.dialog&&specialDialogs[target.dataset.dialog])openDialog(specialDialogs[target.dataset.dialog](),target);
   else if(target.dataset.copy)copyValue(target.dataset.copy);
 });
-document.addEventListener('submit',event=>{
+document.addEventListener('submit',async event=>{
   const form=event.target.closest('.join-form');if(!form)return;
   event.preventDefault();
-  const values=new FormData(form);
-  const body=`Здравствуйте, команда «Кунаки»!\n\nМеня зовут ${values.get('name').trim()}.\nСвязаться со мной: ${values.get('contact').trim()}\n\n${values.get('message').trim()}\n`;
+  if(form.dataset.sending==='true'||form.dataset.sent==='true')return;
+  const fields=['name','contact','message'].map(name=>form.elements.namedItem(name));
+  for(const field of fields){
+    if(!field.value.trim()){
+      field.setCustomValidity('Пожалуйста, заполните это поле.');
+      field.addEventListener('input',()=>field.setCustomValidity(''),{once:true});
+      field.reportValidity();return;
+    }
+  }
+  if(!form.reportValidity())return;
+  const [name,contact,message]=fields.map(field=>field.value.trim());
+  const body=`Здравствуйте, команда «Кунаки»!\n\nМеня зовут ${name}.\nСвязаться со мной: ${contact}\n\n${message}\n`;
   const url=`mailto:${mail}?subject=${encodeURIComponent(form.dataset.subject)}&body=${encodeURIComponent(body)}`;
-  const fallback=$('.email-fallback',dialog);
-  fallback.innerHTML=`<strong>Письмо подготовлено</strong><p>Если почтовое приложение не открылось, скопируйте текст и отправьте его на ${mail}.</p><button class="copy-button" type="button" id="copy-message">Скопировать текст письма</button><p><a href="${escapeHTML(url)}">Попробовать открыть письмо ещё раз <svg class="ui-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 18 12-12M6 6h12v12"/></svg></a></p>`;
-  fallback.hidden=false;
-  $('#copy-message').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(body);toast('Текст письма скопирован');}catch{const text=document.createElement('textarea');text.value=body;text.setAttribute('aria-label','Текст письма для копирования');text.style.cssText='width:100%;min-height:160px;font:inherit';fallback.append(text);text.focus();text.select();}});
-  window.location.href=url;
+  const status=form.nextElementSibling;
+  const submitButton=form.querySelector('[type="submit"]');
+  const buttonLabel=submitButton.innerHTML;
+  const payload={name,contact,message,_subject:form.dataset.subject,_template:'table',_url:window.location.href.split('#')[0]};
+  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact))payload._replyto=contact;
+  form.dataset.sending='true';form.setAttribute('aria-busy','true');
+  submitButton.disabled=true;submitButton.textContent='Отправляем…';
+  status.hidden=false;status.textContent='Отправляем ваше обращение…';
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),20000);
+  try{
+    const response=await fetch(`https://formsubmit.co/ajax/${mail}`,{
+      method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify(payload),signal:controller.signal
+    });
+    if(!response.ok)throw Error('Notification request failed');
+    const result=await response.json();
+    if(result.success!==true&&result.success!=='true')throw Error('Notification not accepted');
+    form.dataset.sent='true';form.reset();form.hidden=true;
+    status.innerHTML='<strong>Заявка принята</strong><p>Спасибо за обращение! Команда свяжется с вами по указанным контактам.</p>';
+    if(status.isConnected&&dialog.open)status.focus();
+  }catch{
+    status.innerHTML=`<strong>Не удалось подтвердить отправку</strong><p>Попробуйте ещё раз или отправьте обращение на <a href="${escapeHTML(url)}">${mail}</a>.</p><button class="copy-button" type="button">Скопировать текст письма</button>`;
+    status.querySelector('button').addEventListener('click',async()=>{
+      try{await navigator.clipboard.writeText(body);toast('Текст письма скопирован');}
+      catch{let text=status.querySelector('textarea');if(!text){text=document.createElement('textarea');text.value=body;text.setAttribute('aria-label','Текст письма для копирования');text.style.cssText='width:100%;min-height:160px;font:inherit';status.append(text);}text.focus();text.select();}
+    });
+  }finally{
+    clearTimeout(timeout);delete form.dataset.sending;form.removeAttribute('aria-busy');
+    submitButton.disabled=form.dataset.sent==='true';submitButton.innerHTML=buttonLabel;
+  }
 });
 
 // Indicate the currently visible section in both navigation menus.
