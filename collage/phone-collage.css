@@ -1,0 +1,46 @@
+/* An independent, layered poster composition for phone screens. */
+.phone-title-break{display:none}
+@media(max-width:767px){
+ .collage-site .header-inner{height:74px;gap:6px}
+ .collage-brand{gap:clamp(6px,2vw,8px)}
+ .collage-brand-symbol{width:clamp(36px,11.28vw,44px)}
+ .collage-brand-lockup img{width:clamp(110px,32.8vw,128px)}
+ .collage-site .header .button-small{font-size:clamp(9px,2.56vw,10px);padding-inline:clamp(8px,2.56vw,10px)}
+ .collage-site .header:after{height:13px;clip-path:none;mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat;-webkit-mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat}
+ .collage-site .header.scrolled:after{height:10px}
+ .collage-hero{--sun-width:clamp(670px,184vw,1050px);background:#f1e5cc}
+ .collage-paper{background:#f1e5cc url('assets/paper-grain.svg') left top/240px 240px repeat}
+ .collage-hero-copy{padding:30px 20px 24px;max-width:620px}
+ .phone-title-break{display:block}
+ .collage-site .collage-hero h1{font-size:clamp(46px,15vw,82px);line-height:1.04;letter-spacing:-1.8px;margin-bottom:22px}
+ .collage-hero h1>span{font-size:1.04em;line-height:1.08;padding:0 8px 6px}
+ .collage-hero h1>span:before{inset:20% -6px 1%}
+ .collage-hero-description{width:82%;max-width:330px;font-size:14.5px;line-height:1.5;font-weight:500;text-wrap:pretty;position:relative}
+ .collage-riders{width:54px;height:46px;margin:52px auto 0}
+ .collage-mobile-art-space{height:clamp(148px,43vw,230px)}
+ .collage-terrain-window{clip-path:none;mask-image:radial-gradient(ellipse var(--phone-copy-radius-x,190px) var(--phone-copy-radius-y,110px) at 50% var(--phone-copy-center,330px),#0000 0%,#0000 94%,#000 100%);-webkit-mask-image:radial-gradient(ellipse var(--phone-copy-radius-x,190px) var(--phone-copy-radius-y,110px) at 50% var(--phone-copy-center,330px),#0000 0%,#0000 94%,#000 100%)}
+ .collage-landscape{display:none}
+ .collage-mobile-mountain{display:block;position:absolute;width:64%;height:clamp(240px,68vw,380px);background:url('assets/mountains-layer-v4.webp') no-repeat;background-size:clamp(730px,205vw,1250px) auto;pointer-events:none}
+ .collage-mobile-mountain-left{left:-8%;background-position:left top;mask-image:linear-gradient(to right,#000 48%,#0000 100%);-webkit-mask-image:linear-gradient(to right,#000 48%,#0000 100%)}
+ .collage-mobile-mountain-right{right:-8%;background-position:right top;mask-image:linear-gradient(to left,#000 48%,#0000 100%);-webkit-mask-image:linear-gradient(to left,#000 48%,#0000 100%)}
+ .collage-petersburg{display:block;left:-17%;width:82%;transform:rotate(-3deg)}
+ .collage-sea{left:22%;right:auto;width:85%;transform:scaleX(-1) rotate(-2deg)}
+ .collage-architecture{right:-9%;width:62%;height:190px;background-size:670px 335px;background-position:right -172px;mask-image:linear-gradient(to right,#0000,#000 15%,#000 94%,#0000);-webkit-mask-image:linear-gradient(to right,#0000,#000 15%,#000 94%,#0000)}
+ .collage-birches{display:block;left:-42px;top:-22px;width:clamp(160px,46vw,245px);height:auto;opacity:.9;transform:rotate(-5deg);mask-image:linear-gradient(to right,#000 12%,#0000 82%);-webkit-mask-image:linear-gradient(to right,#000 12%,#0000 82%);mask-composite:add;-webkit-mask-composite:source-over}
+ .collage-hands{width:min(156%,728px);aspect-ratio:3;clip-path:inset(0 0 17% 0)}
+ .collage-hero-actions{gap:0}
+ .collage-hero-actions:before{content:'';position:absolute;z-index:-1;left:calc(50% - 50vw);right:calc(50% - 50vw);bottom:-24px;height:88px;background:linear-gradient(#f1e5cc00,#f1e5ccb8)}
+ .collage-hero-actions>.collage-button:not(.collage-button-outline){order:0;width:min(90%,340px);min-height:50px;font-size:22px;padding:11px 24px;background:#263f23}
+ .collage-hero-actions>.collage-button-outline{order:1;width:auto;min-width:0;min-height:44px;margin-top:4px;padding:9px 10px;background:none;border:0;border-radius:0;color:#122e18;font-family:Manrope,Arial,sans-serif;font-size:15px;font-weight:600;gap:14px;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px;backdrop-filter:none}
+ .collage-hero-actions>.collage-button-outline:hover{background:none;transform:translateY(-1px)}
+ .collage-hero-actions>.collage-button-outline>span{font-size:21px}
+ .collage-hero:after{height:22px;clip-path:none;mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat;-webkit-mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat;transform:rotate(180deg)}
+ .collage-site .about-section:before{clip-path:none;mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat;-webkit-mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat;transform:rotate(180deg)}
+}
+@media(max-width:350px){
+ .collage-hero-copy{padding-inline:18px}
+ .collage-site .collage-hero h1{letter-spacing:-1.5px}
+ .collage-hero-description{width:86%;font-size:14px;line-height:1.5}
+ .collage-riders{margin-top:46px}
+ .collage-hero-actions>.collage-button:not(.collage-button-outline){font-size:21px}
+}

@@ -25,13 +25,15 @@
     const heroTop=scene.getBoundingClientRect().top;
     const actionBottom=actions.getBoundingClientRect().bottom-heroTop;
     const mobile=window.matchMedia('(max-width: 900px), (max-width: 1100px) and (max-height: 600px)').matches;
+    const phone=window.matchMedia('(max-width: 767px)').matches;
+    const descriptionBox=description.getBoundingClientRect();
     const handHeight=hands.getBoundingClientRect().height;
     const handWidth=hands.getBoundingClientRect().width;
     hands.style.setProperty('--hand-width',Math.round(handWidth)+'px');
     hands.style.setProperty('--sleeve-reach',Math.max(0,Math.ceil((scene.clientWidth-handWidth)/2)+2)+'px');
     hands.style.setProperty('--sleeve-overlap',Math.round(handWidth*.055)+'px');
     // Desktop silhouettes meet on the palm; sleeves continue beyond the side edges.
-    const handTop=mobile? Math.min(mobileArt.getBoundingClientRect().top-heroTop-12,actions.getBoundingClientRect().top-heroTop-handHeight-12) : actionBottom+16-handHeight*.29;
+    const handTop=phone? actions.getBoundingClientRect().top-heroTop-handHeight*.83-10 : mobile? Math.min(mobileArt.getBoundingClientRect().top-heroTop-12,actions.getBoundingClientRect().top-heroTop-handHeight-12) : actionBottom+16-handHeight*.29;
     const minimum=mobile? '0px' : Math.ceil(handTop+handHeight*.8+40)+'px';
     if(scene.style.minHeight!==minimum)scene.style.minHeight=minimum;
     hands.style.top=Math.round(handTop)+'px';
@@ -47,10 +49,22 @@
     sea.style.top=Math.round(ground-sea.getBoundingClientRect().height*(mobile ? .68 : .73))+'px';
     architecture.style.top=Math.round(ground-(mobile?75:38))+'px';
     mobileMountains.forEach(layer=>{layer.style.top=Math.round(ground-125)+'px';});
+    if(phone){
+      const depth=Math.min(260,Math.max(184,scene.clientWidth*.52));
+      mobileMountains[0].style.top=Math.round(ground-depth-42)+'px';
+      mobileMountains[1].style.top=Math.round(ground-depth-30)+'px';
+      petersburg.style.top=Math.round(ground-petersburg.getBoundingClientRect().height*.64)+'px';
+      sea.style.top=Math.round(ground-sea.getBoundingClientRect().height*.42+8)+'px';
+      architecture.style.top=Math.round(ground-132)+'px';
+      scene.style.setProperty('--phone-copy-center',Math.round(descriptionBox.top-heroTop+descriptionBox.height/2)+'px');
+      scene.style.setProperty('--phone-copy-radius-x',Math.ceil(descriptionBox.width/2+44)+'px');
+      scene.style.setProperty('--phone-copy-radius-y',Math.ceil(descriptionBox.height/2+52)+'px');
+    }
     // Natural emblem geometry; only the ray layer is translucent.
-    const descriptionBox=description.getBoundingClientRect();
     scene.style.setProperty('--mobile-terrain-start',Math.round(descriptionBox.bottom-heroTop+14)+'px');
-    const sunTop=descriptionBox.top-heroTop+descriptionBox.height/2+(mobile?0:28)-sun.offsetHeight*.55898;
+    const titleTop=copy.querySelector('h1').getBoundingClientRect().top-heroTop;
+    const sunCenter=phone? (titleTop+descriptionBox.bottom-heroTop)/2 : descriptionBox.top-heroTop+descriptionBox.height/2+(mobile?0:28);
+    const sunTop=sunCenter-sun.offsetHeight*.55898;
     sun.style.top=Math.round(sunTop)+'px';
   }
   function scheduleLayout(){if(layoutFrame===undefined)layoutFrame=requestAnimationFrame(layoutScene);}
