@@ -163,7 +163,7 @@ let sectionNavFrame = false;
 function updateSectionNav(){
   let current = '';
   const threshold = $('.header').offsetHeight + 90;
-  pageSections.forEach(section=>{if(section.getBoundingClientRect().top <= threshold)current = section.id;});
+  pageSections.forEach(section=>{if(section.getClientRects().length && section.getBoundingClientRect().top <= threshold)current = section.id;});
   sectionNavLinks.forEach(link=>{if(link.hash === '#' + current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
   sectionNavFrame = false;
 }
