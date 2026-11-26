@@ -2,6 +2,7 @@
   const scene=document.querySelector('.collage-hero');
   const copy=document.querySelector('.collage-hero-copy');
   const actions=document.querySelector('.collage-hero-actions');
+  const mobileArt=document.querySelector('.collage-mobile-art-space');
   const riders=document.querySelector('.collage-riders');
   const meadow=document.querySelector('.collage-meadow');
   const sun=document.querySelector('.collage-sun');
@@ -23,15 +24,15 @@
     layoutFrame=undefined;
     const heroTop=scene.getBoundingClientRect().top;
     const actionBottom=actions.getBoundingClientRect().bottom-heroTop;
-    const mobile=window.matchMedia('(max-width: 720px)').matches;
+    const mobile=window.matchMedia('(max-width: 900px), (max-width: 1100px) and (max-height: 600px)').matches;
     const handHeight=hands.getBoundingClientRect().height;
     const handWidth=hands.getBoundingClientRect().width;
     hands.style.setProperty('--hand-width',Math.round(handWidth)+'px');
     hands.style.setProperty('--sleeve-reach',Math.max(0,Math.ceil((scene.clientWidth-handWidth)/2)+2)+'px');
     hands.style.setProperty('--sleeve-overlap',Math.round(handWidth*.055)+'px');
     // Desktop silhouettes meet on the palm; sleeves continue beyond the side edges.
-    const handTop=mobile? actionBottom+36-handHeight*.33 : actionBottom+16-handHeight*.29;
-    const minimum=Math.ceil(handTop+handHeight*(mobile ? .82 : .8)+(mobile ? 28 : 40))+'px';
+    const handTop=mobile? Math.min(mobileArt.getBoundingClientRect().top-heroTop-12,actions.getBoundingClientRect().top-heroTop-handHeight-12) : actionBottom+16-handHeight*.29;
+    const minimum=mobile? '0px' : Math.ceil(handTop+handHeight*.8+40)+'px';
     if(scene.style.minHeight!==minimum)scene.style.minHeight=minimum;
     hands.style.top=Math.round(handTop)+'px';
     const ground=riders.getBoundingClientRect().bottom-heroTop-1;
@@ -48,6 +49,7 @@
     mobileMountains.forEach(layer=>{layer.style.top=Math.round(ground-125)+'px';});
     // Natural emblem geometry; only the ray layer is translucent.
     const descriptionBox=description.getBoundingClientRect();
+    scene.style.setProperty('--mobile-terrain-start',Math.round(descriptionBox.bottom-heroTop+14)+'px');
     const sunTop=descriptionBox.top-heroTop+descriptionBox.height/2+(mobile?0:28)-sun.offsetHeight*.55898;
     sun.style.top=Math.round(sunTop)+'px';
   }
