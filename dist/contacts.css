@@ -1,0 +1,70 @@
+/* A compact contact block with one email action and two horizontal dividers. */
+.contacts-section.contacts-redesign{padding-top:64px;padding-bottom:0}
+.contacts-redesign .contacts-heading{margin-bottom:34px}
+.contacts-redesign .contacts-eyebrow{font-size:11px;line-height:1.6;letter-spacing:3px;color:#697a60;margin-bottom:22px}
+.contacts-redesign h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(40px,4.2vw,64px);line-height:1.1;font-weight:400;letter-spacing:-1.6px;color:var(--green)}
+.contacts-redesign .contacts-subtitle{max-width:760px;font-size:17px;line-height:1.65;color:#697a60;margin-top:16px}
+.contact-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.85fr);grid-template-areas:"email details" "social details";column-gap:clamp(40px,6vw,96px);row-gap:28px;align-items:start;border-top:1px solid var(--line);padding-block:38px 44px}
+.contact-email-block{grid-area:email;min-width:0}
+.contact-field-label{font-size:14px;line-height:1.6;color:#6b7a62;margin:0 0 10px}
+.contact-email-link{display:inline-flex;align-items:center;gap:12px;max-width:100%;font-family:Georgia,'Times New Roman',serif;font-size:clamp(32px,3.6vw,54px);line-height:1.2;letter-spacing:-1.2px;font-weight:400;color:var(--green);white-space:nowrap}
+.contact-email-link:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px}
+.contact-inline-arrow{flex:none;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.contact-email-link .contact-inline-arrow{width:28px;height:28px}
+.contact-location-column{grid-area:details;display:grid;gap:25px;min-width:0}
+.contact-phone-links{display:flex;flex-direction:column;gap:7px}
+.contact-phone-links a{width:fit-content;font-size:17px;line-height:1.55;color:var(--green)}
+.contact-phone-links a:hover,.contact-map-link:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-map-link{display:inline-flex;align-items:flex-start;gap:8px;max-width:100%;font-size:16px;line-height:1.7;color:var(--green)}
+.contact-map-link span{min-width:0}
+.contact-map-link .contact-inline-arrow{width:17px;height:17px;margin-top:5px}
+.contact-social-row{grid-area:social;display:flex;align-items:center;gap:14px;min-width:0}
+.contact-social-icon{display:inline-grid;place-items:center;flex:none;width:58px;height:58px;background:#2d442d;color:#f4ecd6;border-radius:50%;transition:background .2s,transform .2s}
+.contact-social-icon:hover{background:#173d29;transform:translateY(-2px)}
+.contact-brand-mark{width:34px;height:34px;fill:currentColor;stroke:none}
+.contact-social-caption{font-size:14px;line-height:1.5;color:#697a60;margin-left:3px}
+.footer.contact-footer{border:0;background:none}
+.contact-footer-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;min-height:84px;padding-block:22px;border-top:1px solid var(--line);font-size:12px;line-height:1.6;color:#697a60}
+.contact-footer-copyright{justify-self:start}
+.contact-footer-documents,.contact-footer-up{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#4b6145}
+.contact-footer-documents:hover,.contact-footer-up:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-footer-documents .contact-inline-arrow{width:15px;height:15px}
+.contact-footer-up{justify-self:end}
+.contact-footer-up .contact-inline-arrow{width:18px;height:18px}
+.reporting-credit-link{display:block;font:inherit;font-size:12px;line-height:1.6;color:#64765a;text-decoration:underline;text-underline-offset:4px;padding:10px 0;margin-top:8px}
+@media(max-width:1100px){
+ .contacts-section.contacts-redesign{padding-top:44px}
+ .contact-layout{column-gap:36px;grid-template-columns:minmax(0,1.3fr) minmax(240px,.9fr)}
+ .contact-email-link{font-size:clamp(29px,3.9vw,40px);gap:10px;letter-spacing:-.9px}
+ .contact-email-link .contact-inline-arrow{width:24px;height:24px}
+ .contact-phone-links a{font-size:16px}
+ .contact-map-link{font-size:15px}
+}
+@media(max-width:767px){
+ .contacts-section.contacts-redesign{width:calc(100% - 40px);padding-top:38px}
+ .contacts-redesign .contacts-heading{margin-bottom:25px}
+ .contacts-redesign .contacts-eyebrow{font-size:10px;letter-spacing:2.6px;margin-bottom:18px}
+ .contacts-redesign h2{font-size:clamp(34px,10.4vw,48px);line-height:1.08;letter-spacing:-1px}
+ .contacts-redesign h2 span{display:block}
+ .contacts-redesign .contacts-subtitle{font-size:15px;line-height:1.65;max-width:420px;margin-top:16px}
+ .contact-layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"email" "details" "social";row-gap:27px;padding-block:25px 30px}
+ .contact-field-label{font-size:13px;margin-bottom:9px}
+ .contact-email-link{font-size:clamp(23px,7.6vw,38px);gap:10px;letter-spacing:-.8px}
+ .contact-email-link .contact-inline-arrow{width:23px;height:23px}
+ .contact-location-column{gap:22px}
+ .contact-phone-links{gap:8px}
+ .contact-phone-links a{font-size:16px;line-height:1.65;min-height:28px}
+ .contact-address-label{display:none}
+ .contact-map-link{font-size:15px;line-height:1.65;min-height:32px}
+ .contact-social-row{gap:13px;margin-top:3px}
+ .contact-social-icon{width:54px;height:54px}
+ .contact-brand-mark{width:32px;height:32px}
+ .contact-social-caption{font-size:13px;margin-left:2px}
+ .contact-footer .contact-footer-row{width:calc(100% - 40px);grid-template-columns:minmax(0,1fr) auto;min-height:74px;padding-block:15px;gap:16px;font-size:12px}
+ .contact-footer-copyright{display:none}
+ .contact-footer-documents{justify-self:start;gap:6px}
+ .contact-footer-up{width:44px;height:44px;justify-content:center}
+ .contact-footer-up span{display:none}
+ .contact-footer-up .contact-inline-arrow{width:22px;height:22px}
+}
+@media(prefers-reduced-motion:reduce){.contact-social-icon{transition:none}}
