@@ -126,7 +126,8 @@ document.addEventListener('submit',async event=>{
   const status=form.nextElementSibling;
   const submitButton=form.querySelector('[type="submit"]');
   const buttonLabel=submitButton.innerHTML;
-  const payload={name,contact,message,_subject:form.dataset.subject,_template:'table',_url:window.location.href.split('#')[0]};
+  const formUrl=new URL(window.location.href);formUrl.search='';formUrl.hash='';
+  const payload={name,contact,message,_subject:form.dataset.subject,_template:'table',_url:formUrl.href};
   if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact))payload._replyto=contact;
   form.dataset.sending='true';form.setAttribute('aria-busy','true');
   submitButton.disabled=true;submitButton.textContent='Отправляем…';
@@ -138,14 +139,20 @@ document.addEventListener('submit',async event=>{
       method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
       body:JSON.stringify(payload),signal:controller.signal
     });
-    if(!response.ok)throw Error('Notification request failed');
     const result=await response.json();
-    if(result.success!==true&&result.success!=='true')throw Error('Notification not accepted');
+    if(!response.ok||(result.success!==true&&result.success!=='true')){
+      const error=Error('Notification not accepted');
+      error.code=/needs?\s+activation|activate\s+form|not\s+(?:yet\s+)?(?:been\s+)?activated/i.test(String(result.message||''))?'activation':'service';
+      throw error;
+    }
     form.dataset.sent='true';form.reset();form.hidden=true;
     status.innerHTML='<strong>Заявка принята</strong><p>Спасибо за обращение! Команда свяжется с вами по указанным контактам.</p>';
     if(status.isConnected&&dialog.open)status.focus();
-  }catch{
-    status.innerHTML=`<strong>Не удалось подтвердить отправку</strong><p>Попробуйте ещё раз или отправьте обращение на <a href="${escapeHTML(url)}">${mail}</a>.</p><button class="copy-button" type="button">Скопировать текст письма</button>`;
+  }catch(error){
+    const activation=error.code==='activation';
+    const title=activation?'Отправка с сайта ещё не включена':error.name==='AbortError'?'Сервис отправки не ответил вовремя':error instanceof TypeError?'Не удалось связаться с сервисом отправки':'Не удалось подтвердить отправку';
+    const explanation=activation?'Адрес получателя ожидает подтверждения. Пока можно отправить письмо напрямую.':'Данные остались в форме. Попробуйте ещё раз или отправьте письмо напрямую.';
+    status.innerHTML=`<strong>${title}</strong><p>${explanation}</p><p><a href="${escapeHTML(url)}">Написать на ${mail}</a></p><button class="copy-button" type="button">Скопировать текст письма</button>`;
     status.querySelector('button').addEventListener('click',async()=>{
       try{await navigator.clipboard.writeText(body);toast('Текст письма скопирован');}
       catch{let text=status.querySelector('textarea');if(!text){text=document.createElement('textarea');text.value=body;text.setAttribute('aria-label','Текст письма для копирования');text.style.cssText='width:100%;min-height:160px;font:inherit';status.append(text);}text.focus();text.select();}
