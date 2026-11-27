@@ -1,0 +1,10 @@
+Social brand marks: Font Awesome Free 5.15.4 by Fonticons, Inc.
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+https://fontawesome.com/license/free
+
+Sources:
+https://github.com/FortAwesome/Font-Awesome/blob/5.15.4/svgs/brands/vk.svg
+https://github.com/FortAwesome/Font-Awesome/blob/5.15.4/svgs/brands/telegram-plane.svg
+
+Changes: paths placed in an SVG symbol sprite; fill inherits currentColor. Original path geometry is unchanged.
