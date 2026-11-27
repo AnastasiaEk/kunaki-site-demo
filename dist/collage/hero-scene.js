@@ -56,15 +56,11 @@
       petersburg.style.top=Math.round(ground-petersburg.getBoundingClientRect().height*.64)+'px';
       sea.style.top=Math.round(ground-sea.getBoundingClientRect().height*.42+8)+'px';
       architecture.style.top=Math.round(ground-132)+'px';
-      scene.style.setProperty('--phone-copy-center',Math.round(descriptionBox.top-heroTop+descriptionBox.height/2)+'px');
-      scene.style.setProperty('--phone-copy-radius-x',Math.ceil(descriptionBox.width/2+44)+'px');
-      scene.style.setProperty('--phone-copy-radius-y',Math.ceil(descriptionBox.height/2+52)+'px');
     }
     // Natural emblem geometry; only the ray layer is translucent.
     scene.style.setProperty('--mobile-terrain-start',Math.round(descriptionBox.bottom-heroTop+14)+'px');
-    const titleTop=copy.querySelector('h1').getBoundingClientRect().top-heroTop;
-    const sunCenter=phone? (titleTop+descriptionBox.bottom-heroTop)/2 : descriptionBox.top-heroTop+descriptionBox.height/2+(mobile?0:28);
-    const sunTop=sunCenter-sun.offsetHeight*.55898;
+    const sunCenter=descriptionBox.top-heroTop+descriptionBox.height/2+(mobile?0:28);
+    const sunTop=phone? Math.max(14,sunCenter-sun.offsetHeight*.55898) : sunCenter-sun.offsetHeight*.55898;
     sun.style.top=Math.round(sunTop)+'px';
   }
   function scheduleLayout(){if(layoutFrame===undefined)layoutFrame=requestAnimationFrame(layoutScene);}

@@ -8,7 +8,7 @@
  .collage-site .header .button-small{font-size:clamp(9px,2.56vw,10px);padding-inline:clamp(8px,2.56vw,10px)}
  .collage-site .header:after{height:13px;clip-path:none;mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat;-webkit-mask:url('assets/paper-tear-mobile.svg') center/100% 100% no-repeat}
  .collage-site .header.scrolled:after{height:10px}
- .collage-hero{--sun-width:clamp(670px,184vw,1050px);background:#f1e5cc}
+ .collage-hero{--sun-width:min(120vw,760px);background:#f1e5cc}
  .collage-paper{background:#f1e5cc url('assets/paper-grain.svg') left top/240px 240px repeat}
  .collage-hero-copy{padding:30px 20px 24px;max-width:620px}
  .phone-title-break{display:block}
@@ -16,9 +16,10 @@
  .collage-hero h1>span{font-size:1.04em;line-height:1.08;padding:0 8px 6px}
  .collage-hero h1>span:before{inset:20% -6px 1%}
  .collage-hero-description{width:82%;max-width:330px;font-size:14.5px;line-height:1.5;font-weight:500;text-wrap:pretty;position:relative}
- .collage-riders{width:54px;height:46px;margin:52px auto 0}
- .collage-mobile-art-space{height:clamp(148px,43vw,230px)}
- .collage-terrain-window{clip-path:none;mask-image:radial-gradient(ellipse var(--phone-copy-radius-x,190px) var(--phone-copy-radius-y,110px) at 50% var(--phone-copy-center,330px),#0000 0%,#0000 94%,#000 100%);-webkit-mask-image:radial-gradient(ellipse var(--phone-copy-radius-x,190px) var(--phone-copy-radius-y,110px) at 50% var(--phone-copy-center,330px),#0000 0%,#0000 94%,#000 100%)}
+ .collage-riders{width:54px;height:46px;margin:124px auto 0}
+ .collage-mobile-art-space{height:clamp(132px,38vw,210px)}
+ .collage-sun-window{z-index:1}
+ .collage-terrain-window{z-index:3;clip-path:none;mask-image:none;-webkit-mask-image:none}
  .collage-landscape{display:none}
  .collage-mobile-mountain{display:block;position:absolute;width:64%;height:clamp(240px,68vw,380px);background:url('assets/mountains-layer-v4.webp') no-repeat;background-size:clamp(730px,205vw,1250px) auto;pointer-events:none}
  .collage-mobile-mountain-left{left:-8%;background-position:left top;mask-image:linear-gradient(to right,#000 48%,#0000 100%);-webkit-mask-image:linear-gradient(to right,#000 48%,#0000 100%)}
@@ -41,6 +42,6 @@
  .collage-hero-copy{padding-inline:18px}
  .collage-site .collage-hero h1{letter-spacing:-1.5px}
  .collage-hero-description{width:86%;font-size:14px;line-height:1.5}
- .collage-riders{margin-top:46px}
+ .collage-riders{margin-top:118px}
  .collage-hero-actions>.collage-button:not(.collage-button-outline){font-size:21px}
 }
